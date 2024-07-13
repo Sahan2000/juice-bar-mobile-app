@@ -8,7 +8,8 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     'Inria-Sans-Bold': require('../assets/fonts/InriaSans-Bold.ttf'),
-    'Inria-Sans-Regular': require('../assets/fonts/InriaSans-Regular.ttf')
+    'Inria-Sans-Regular': require('../assets/fonts/InriaSans-Regular.ttf'),
+    'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf')
   });
 
   useEffect(() => {
@@ -22,9 +23,8 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack>
+    <Stack initialRouteName="index">
       <Stack.Screen name="index" options={{headerShown: false}} />
-      <Stack.Screen name="login" options={{headerShown: false}} />
       <Stack.Screen name="signUp" options={{headerShown: false}} />
     </Stack>
   );
