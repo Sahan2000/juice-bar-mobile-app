@@ -10,7 +10,7 @@ export default function Index() {
         <Text style={styles.subTitle}>If you have account login first and Don’t you have account create an account.</Text>
         <TextInput style={styles.input} placeholder="Enter your email"/>
         <TextInput style={styles.input} placeholder="Enter your password" />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={()=>{router.push('/welcomePage')}} style={styles.button}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.googleButton}>

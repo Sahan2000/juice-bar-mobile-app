@@ -9,7 +9,9 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     'Inria-Sans-Bold': require('../assets/fonts/InriaSans-Bold.ttf'),
     'Inria-Sans-Regular': require('../assets/fonts/InriaSans-Regular.ttf'),
-    'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf')
+    'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf'),
+    'Inknut-Antiqua-semi-bold': require('../assets/fonts/InknutAntiqua-SemiBold.ttf'),
+    'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf')
   });
 
   useEffect(() => {
@@ -26,6 +28,8 @@ export default function RootLayout() {
     <Stack initialRouteName="index">
       <Stack.Screen name="index" options={{headerShown: false}} />
       <Stack.Screen name="signUp" options={{headerShown: false}} />
+      <Stack.Screen name="welcomePage" options={{headerShown: false}} />
+      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
     </Stack>
   );
 }
