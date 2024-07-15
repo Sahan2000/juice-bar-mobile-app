@@ -1,16 +1,19 @@
 import { router } from "expo-router";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function WelcomePage() {
     return (
-        <View style={style.container}>
-            <Image style={style.image} source={require('../assets/images/welcomePageImg.png')}/>
-            <Text style={style.title}>Juice World</Text>
-            <Text style= {style.subtitle}>Welcome to Juice World</Text>
-            <Text style={style.text}>Fresh, organic juices and smoothies. Customize your drink and enjoy wellness in every sip!</Text>
-            <TouchableOpacity onPress={() => {router.push('/(tabs)/(home)')}} style={style.button}>
-                <Text style={style.buttonText}>Get Started</Text>
-            </TouchableOpacity>
-        </View>
+        <SafeAreaView style={{flex:1}}>
+            <View style={style.container}>
+                <Image style={style.image} source={require('../assets/images/welcomePageImg.png')}/>
+                <Text style={style.title}>Juice World</Text>
+                <Text style= {style.subtitle}>Welcome to Juice World</Text>
+                <Text style={style.text}>Fresh, organic juices and smoothies. Customize your drink and enjoy wellness in every sip!</Text>
+                <TouchableOpacity onPress={() => {router.push('/(tabs)/')}} style={style.button}>
+                    <Text style={style.buttonText}>Get Started</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
     );
 }
 const style = StyleSheet.create({

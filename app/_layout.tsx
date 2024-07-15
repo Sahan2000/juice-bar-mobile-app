@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from 'react';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,11 +26,13 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack initialRouteName="index">
-      <Stack.Screen name="index" options={{headerShown: false}} />
-      <Stack.Screen name="signUp" options={{headerShown: false}} />
-      <Stack.Screen name="welcomePage" options={{headerShown: false}} />
-      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
-    </Stack>
+    <SafeAreaProvider>
+      <Stack initialRouteName="index">
+        <Stack.Screen name="index" options={{headerShown: false}} />
+        <Stack.Screen name="signUp" options={{headerShown: false}} />
+        <Stack.Screen name="welcomePage" options={{headerShown: false}} />
+        <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+      </Stack>
+    </SafeAreaProvider>
   );
 }

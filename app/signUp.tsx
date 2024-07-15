@@ -1,26 +1,28 @@
 import { Link, router } from "expo-router"
 import { Text,View,StyleSheet,Image,TouchableOpacity, TextInput } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import {useState} from "react";
 export default function SignUpPage() {
     return (
-        <View>
+        <SafeAreaView style={{flex: 1, justifyContent:"flex-start"}}>
             <View style={styles.titleContainer}>
-                <TouchableOpacity onPress={router.back} style={styles.backContainer}>
+                <TouchableOpacity style={styles.backContainer} onPress={router.back}>
                     <Image style={styles.backIcon} source={require('../assets/images/backIcon.png')}/>
                     <Text style={styles.title}>Sign Up</Text>
                 </TouchableOpacity>
                 <Text style={styles.subTitle}>Create your account</Text>
             </View>
-            <View style={styles.inputContainer}>
+            <View style={styles.inputContainer} >
                 <TextInput style={styles.input} placeholder="Enter your email"/>
                 <TextInput style={styles.input} placeholder="Enter your phone number"/>
                 <TextInput style={styles.input} placeholder="Enter your password"/>
                 <TextInput style={styles.input} placeholder="Confirm your password"/>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Sign Up</Text>
+                <TouchableOpacity style={styles.button} >
+                    <Text style={styles.buttonText} >Sign Up</Text>
                 </TouchableOpacity>
-                <Text style={styles.text}>If you have an account ? <Link style={styles.textLink} href={'/'}>Sign In</Link> </Text>
+                <Text style={styles.text} >If you have an account ? <Link style={styles.textLink} href={'/'}>Sign In</Link> </Text>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -35,29 +37,24 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         width: 430,
-        height: 169,
+        height: 129,
         backgroundColor: '#FA6440',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-start',
-        paddingHorizontal: 20,
+        justifyContent: 'space-around',
+        alignItems: 'stretch',
+        paddingHorizontal: 10,
     },
     title: {
         fontSize: 32,
         color: "#FFFFFF",
         fontFamily: 'Inria-Sans-Bold',
-        marginBottom: 16
     },
     subTitle: {
         color: "#FFFFFF",
         fontSize: 19,
         fontFamily: 'Inria-Sans-Regular',
-        marginBottom: 16,
-        left: 10
     },
     backContainer: {
-        flex: 1,
         flexDirection: 'row',
-        top: 70,
     },
     backIcon: {
         width: 40,

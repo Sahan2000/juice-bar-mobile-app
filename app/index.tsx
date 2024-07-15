@@ -1,25 +1,43 @@
 import { Link, router } from "expo-router";
 import { Text, View, Image, StyleSheet,TextInput,TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {useState} from "react";
+import {Entypo, AntDesign} from "@expo/vector-icons";
 
 export default function Index() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+};
 
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
+    <SafeAreaView style={styles.container}>
+      <View>
         <Text style={styles.title}>Welcome Back</Text>
-        <Text style={styles.subTitle}>If you have account login first and Don’t you have account create an account.</Text>
-        <TextInput style={styles.input} placeholder="Enter your email"/>
-        <TextInput style={styles.input} placeholder="Enter your password" />
-        <TouchableOpacity onPress={()=>{router.push('/welcomePage')}} style={styles.button}>
-          <Text style={styles.buttonText}>Sign In</Text>
+        <Text style={styles.subTitle} >If you have account login first and Don’t you have account create an account.</Text>
+        <TextInput style={styles.input}  value={email} autoCapitalize="none" onChangeText={(text) => setEmail(text)} placeholder="Enter your email"/>
+        <View style={{flexDirection:"row", justifyContent: "center", alignItems: "center",}}>
+          <TextInput style={styles.input}  value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={showPassword} placeholder="Enter your password" />
+          <TouchableOpacity style={{right: 40, top:15}} onPress={togglePassword}>
+                          {showPassword ? (
+                              <Entypo name="eye" size={34} color="#FA6440" />
+                          ) : (
+                              <Entypo name="eye-with-line" size={34} color="#FA6440" />
+                          )}
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.button} onPress={()=>{router.push('/welcomePage')}}>
+          <Text style={styles.buttonText} >Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.googleButton}>
-          <Image source={require('../assets/images/google.png')} style={styles.image}/>
+          <Image style={styles.image} source={require('../assets/images/google.png')} />
           <Text style={styles.googleButtonText}>Continue with google</Text>
         </TouchableOpacity>
-        <Text style={styles.text}>Don’t you have an account ? <Link style={styles.textLink} href={'/signUp'}>Sign Up</Link></Text>
+        <Text style={styles.text} >Don’t you have an account ? <Link style={styles.textLink} href={'/signUp'}>Sign Up</Link></Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -28,7 +46,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    paddingTop: 20,
+    paddingLeft: 20
   },
   card: {
     width: 359,
@@ -41,6 +61,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inria-Sans-Bold",
   },
   subTitle: {
+    width: 359,
     fontSize: 15,
     fontFamily: "Inria-Sans-Regular",
     opacity: 0.6,
