@@ -22,9 +22,9 @@ export default function Index() {
           <TextInput style={styles.input}  value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={showPassword} placeholder="Enter your password" />
           <TouchableOpacity style={{right: 40, top:15}} onPress={togglePassword}>
                           {showPassword ? (
-                              <Entypo name="eye" size={34} color="#FA6440" />
+                              <Entypo name="eye" size={24} color="#b2afaf" />
                           ) : (
-                              <Entypo name="eye-with-line" size={34} color="#FA6440" />
+                              <Entypo name="eye-with-line" size={24} color="#b2afaf" />
                           )}
           </TouchableOpacity>
         </View>
@@ -69,41 +69,42 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   input: {
-    width: 340,
-    height: 60,
+    width: 330,
+    height: 40,
     marginTop: 26,
     paddingHorizontal: 16,
     borderColor: '#000',
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 10,
     marginBottom: 0,
     fontFamily: "Inria-Sans-Regular",
-    fontSize: 21
+    fontSize: 18,
+    backgroundColor: '#ffffff',
   },
   button: {
     backgroundColor: '#FA6440',
     marginTop: 40,
-    width: 340,
-    height: 53.,
-    borderRadius: 25,
+    width: 330,
+    height: 43.,
+    borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
   },
   buttonText: {
     color: '#fff',
-    fontSize: 25,
+    fontSize: 18,
     fontFamily: "Inria-Sans-Bold",
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     marginRight: 20
   },
   googleButton: {
     borderWidth: 1,
     marginTop: 30,
-    width: 340,
-    height: 55,
+    width: 330,
+    height: 40,
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   googleButtonText: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: "Inria-Sans-Regular",
     color: '#000',
     opacity: 0.6

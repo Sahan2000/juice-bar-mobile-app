@@ -1,10 +1,21 @@
 import { StyleSheet, Text, TextInput, View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Dashboard() {
+    const offerItems = [
+        
+    ];
     return (
-        <View style={style.container}>
-            
-        </View>
+        <SafeAreaView>
+            <View>
+                <View>
+                    <Image source={require('@/assets/images/Juice1.png')}/>
+                    <View>
+
+                    </View>
+                </View>
+            </View>
+        </SafeAreaView>
     );
 }
 
@@ -14,14 +25,6 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    searchBar: {
-        borderWidth: 1,
-        width: 315,
-        height: 55,
-        borderRadius: 25,
-        paddingHorizontal: 20,
-        fontSize: 17,
-        fontFamily: "Inter-Regular"
-    }
+    
 
 });
