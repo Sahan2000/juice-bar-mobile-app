@@ -1,20 +1,30 @@
-import { StyleSheet, Text, TextInput, View, Image } from "react-native";
+import { StyleSheet, Text, TextInput, View, Image, FlatList, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Dashboard() {
-    const offerItems = [
-        
+    const discountOffers = [
+        { name: 'Mango Juice', image: '@/assets/images/Juice1.png', discount: '30% off' },
+        { name: 'Apple Juice', image: '@/assets/images/appleJuice.png', discount: '20% off' },
+        { name: 'Grape Juice', image: '@/assets/images/avacadoJuice.jpg', discount: '25% off' },
     ];
     return (
         <SafeAreaView>
-            <View>
-                <View>
-                    <Image source={require('@/assets/images/Juice1.png')}/>
+            <ScrollView>
+            <Text >Discount Offers</Text>
+            <FlatList
+                horizontal
+                data={discountOffers}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => (
                     <View>
-
+                        <Image source={{uri: item.image}} />
+                        <Text >{item.name}</Text>
+                        <Text >{item.discount}</Text>
                     </View>
-                </View>
-            </View>
+                )}
+                contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 16 }}
+            />
+            </ScrollView>
         </SafeAreaView>
     );
 }
